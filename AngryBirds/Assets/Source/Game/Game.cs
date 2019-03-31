@@ -43,9 +43,3 @@ public class Game : MonoBehaviour
         debugControls.target = currentControl.transform;
     }
 }
-
-public enum ControlType
-{
-    VR,
-    AR,
-}

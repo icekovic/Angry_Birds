@@ -13,8 +13,3 @@ public abstract class Control : MonoBehaviour
 
     public abstract PlacementPose getPlacementPose();
 }
-
-public class PlacementPose
-{
-    public Pose pose;
-}
