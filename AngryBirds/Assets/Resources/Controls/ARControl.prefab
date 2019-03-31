@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5090743043796993650}
-  - component: {fileID: 5090743043796993653}
+  - component: {fileID: 2848641690428134857}
   m_Layer: 0
   m_Name: ARControl
   m_TagString: Untagged
@@ -153,7 +153,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5090743043796993653
+--- !u!114 &2848641690428134857
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5090743043796993652}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27ee7f299d5f5224c870b5b55b369a5a, type: 3}
+  m_Script: {fileID: 11500000, guid: d00289a17cd322144b85857309ee3421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5090743043970292784

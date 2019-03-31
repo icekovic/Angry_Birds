@@ -1,12 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR;
-using UnityEngine.Experimental.XR;
-using System;
+using UnityEngine.XR.ARFoundation;
 
-public class ARContol : Control
+public class ARControl : Control
 {
     ARSessionOrigin arOrigin;
     Pose placementPose;
