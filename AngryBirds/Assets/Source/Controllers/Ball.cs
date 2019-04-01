@@ -4,16 +4,8 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    //[SerializeField]
-    //private float masa;
-
     [SerializeField]
-    private Vector3 vektorBrzine;
-
-    //[SerializeField]
-    //private Vector3 rezultantniVektorSile;
-
-    //private List<Vector3> vektoriSila = new List<Vector3>();
+    private Vector3 direction;
 
     void Start()
     {
@@ -32,44 +24,17 @@ public class Ball : MonoBehaviour
 
     private void Azurirajkoordinate()
     {
-        //inicijalizacija rezultantnog vektora
-        //rezultantniVektorSile = Vector3.zero;
-
-        //foreach (Vector3 vektorSile in vektoriSila)
-        //{
-        //    rezultantniVektorSile = rezultantniVektorSile + vektorSile;
-        //}
-
-        //vektoriSila = new List<Vector3>();
-
-        //izračun trenutne pozicije ovisno o rezultantnoj sili
-        //Vector3 vektorAkceleracije = rezultantniVektorSile / masa;
-        vektorBrzine += vektorBrzine * Time.deltaTime;
-        transform.position += vektorBrzine * Time.deltaTime;
+        direction += direction * Time.deltaTime;
+        transform.position += direction * Time.deltaTime;
     }
 
-    //public void DodajSilu(Vector3 vektorSile)
-    //{
-    //    vektoriSila.Add(vektorSile);
-    //}
-
-    //public float GetMasa()
-    //{
-    //    return masa;
-    //}
-
-    public Vector3 GetVektorBrzine()
+    public Vector3 GetDirection()
     {
-        return vektorBrzine;
+        return direction;
     }
 
-    //public Vector3 GetRezultantniVektorSile()
-    //{
-    //    return rezultantniVektorSile;
-    //}
-
-    public void SetVektorBrzine(Vector3 vektorBrzine)
+    public void SetDirection(Vector3 direction)
     {
-        this.vektorBrzine = vektorBrzine;
+        this.direction = direction;
     }
 }
