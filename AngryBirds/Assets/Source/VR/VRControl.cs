@@ -8,6 +8,14 @@ public class VRControl : Control
     bool canPlace = false;
     Vector3 currentHit;
     float placeCooldown = 0;
+
+    private GameObject ball;
+
+    private void Awake()
+    {
+        ball = Resources.Load("Ball") as GameObject;
+    }
+
     public void Start()
     {
         StartCoroutine(LoadDevice("cardboard"));
@@ -62,6 +70,13 @@ public class VRControl : Control
             // lookAt = lookAt.y < 0 ? -lookAt : lookAt;
             // indicator.transform.rotation = Quaternion.LookRotation(hit.point + lookAt, hit.normal);
             // Debug.Log(hit.point);
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Instantiate(ball, currentHit, Quaternion.identity);
+                Debug.Log("current: " + currentHit);   //  OVDJE KUGLA MORA POGODITI!!!!
+                //Debug.Log("hit point: " + hit.point);
+            }                
         }
         else
         {
