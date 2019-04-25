@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 9105196662615142386}
   - component: {fileID: 9105196662615142389}
   - component: {fileID: 7657789819104085235}
-  - component: {fileID: 1618874660561383366}
+  - component: {fileID: 4115633135457641494}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,7 +109,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1618874660561383366
+--- !u!114 &4115633135457641494
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

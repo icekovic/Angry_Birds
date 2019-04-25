@@ -10,15 +10,21 @@ public class VRControl : Control
     float placeCooldown = 0;
 
     private GameObject ball;
+    private Rigidbody ballRigidBody;
 
     private void Awake()
     {
-        ball = Resources.Load("Ball") as GameObject;
+        //ball = Resources.Load("Ball") as GameObject;
+        //ballRigidBody = ball.GetComponent<Rigidbody>();        
     }
 
     public void Start()
     {
         StartCoroutine(LoadDevice("cardboard"));
+
+        ball = GameObject.FindGameObjectWithTag("Ball");
+        ballRigidBody = ball.GetComponent<Rigidbody>();
+
     }
 
     IEnumerator LoadDevice(string newDevice)
@@ -73,7 +79,11 @@ public class VRControl : Control
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                Instantiate(ball, currentHit, Quaternion.identity);
+                if (ball != null)
+                {
+                    Debug.Log("ball exists");
+                }
+                ballRigidBody.velocity = (hit.point - ballRigidBody.transform.position).normalized * 30;
                 Debug.Log("current: " + currentHit);   //  OVDJE KUGLA MORA POGODITI!!!!
                 //Debug.Log("hit point: " + hit.point);
             }                

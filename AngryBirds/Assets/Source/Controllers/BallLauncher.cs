@@ -11,19 +11,12 @@ public class BallLauncher : MonoBehaviour
     [SerializeField]
     private float launchForce;
 
-    private VRControl vrControl;
-
     //[SerializeField]
     //private float maxRayDistance;
 
-    private void Awake()
-    {
-        
-    }
-
     void Start()
     {
-
+        InstantiateBall();
     }
 
     void Update()
@@ -44,10 +37,9 @@ public class BallLauncher : MonoBehaviour
         //}
     }
 
-    public Ball InstantiateBall()
+    private void InstantiateBall()
     {
         Ball newBall = Instantiate(ball) as Ball;
         newBall.transform.parent = GameObject.Find("Canon").transform;
-        return newBall;
     }
 }

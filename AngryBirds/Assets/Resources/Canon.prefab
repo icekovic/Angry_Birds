@@ -105,6 +105,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a17495e4de4e66c42b1271773a3201aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 1618874660561383366, guid: d705c36d02eb97a45b1d6df79f2527d9, type: 3}
+  ball: {fileID: 4115633135457641494, guid: d705c36d02eb97a45b1d6df79f2527d9, type: 3}
   launchForce: 30
-  maxRayDistance: 25
