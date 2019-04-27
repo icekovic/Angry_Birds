@@ -28,30 +28,18 @@ public class Ball : MonoBehaviour
         {
             transform.position = GameObject.Find("SpawnPosition").transform.position;
         }
-
-        //if(Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    inPlay = true;
-        //    LaunchBall();
-        //}
     }
 
-    private void FixedUpdate()
-    {
-        AzurirajKoordinate();
-    }
+    //private void LaunchBall(RaycastHit hit)
+    //{
+    //    rigidBody.velocity = (hit.point - rigidBody.transform.position).normalized * 30;
+    //}
 
-    private void LaunchBall(RaycastHit hit)
-    {
-        rigidBody.velocity = (hit.point - rigidBody.transform.position).normalized * 30;
-        AzurirajKoordinate();
-    }
-
-    private void AzurirajKoordinate()
-    {
-        direction += direction * Time.deltaTime;
-        transform.position += direction * Time.deltaTime;
-    }
+    //private void AzurirajKoordinate()
+    //{
+    //    direction += direction * Time.deltaTime;
+    //    transform.position += direction * Time.deltaTime;
+    //}
 
     public Vector3 GetDirection()
     {
@@ -68,6 +56,11 @@ public class Ball : MonoBehaviour
         inPlay = true;
     }
 
+    public bool GetInPlay()
+    {
+        return inPlay;
+    }
+
     public Rigidbody GetBallRigidBody()
     {
         return rigidBody;
@@ -80,7 +73,7 @@ public class Ball : MonoBehaviour
         {
             inPlay = false;
             rigidBody.velocity = Vector3.zero;
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
         }
     }
 }

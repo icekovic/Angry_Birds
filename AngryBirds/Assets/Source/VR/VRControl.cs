@@ -81,10 +81,11 @@ public class VRControl : Control
             // indicator.transform.rotation = Quaternion.LookRotation(hit.point + lookAt, hit.normal);
             // Debug.Log(hit.point);
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && !ball.GetInPlay())
             {
                 ball.SetInPlayTrue();
                 ball.GetBallRigidBody().velocity = (hit.point - ball.GetBallRigidBody().transform.position).normalized * 30;
+                //ball.GetBallRigidBody().velocity = (hit.point - ball.GetBallRigidBody().transform.position).normalized * 30;
                 //if (ball != null)
                 //{
                 //    Debug.Log("ball exists");
