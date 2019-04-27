@@ -38,4 +38,13 @@ public class Ball : MonoBehaviour
     {
         this.direction = direction;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag.Equals("Floor") || collision.gameObject.tag.Equals("Building")
+            || collision.gameObject.tag.Equals("Enemy"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
