@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour
 {
@@ -13,12 +14,13 @@ public class Ball : MonoBehaviour
 
     private bool inPlay;
     private Rigidbody rigidBody;
-
     private int lives = 5;
+    private CanvasMessageManager canvasMessageManager;
 
     private void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
+        canvasMessageManager = FindObjectOfType<CanvasMessageManager>();
     }
 
     void Start()
@@ -33,10 +35,29 @@ public class Ball : MonoBehaviour
             transform.position = GameObject.Find("SpawnPosition").transform.position;
         }
 
-        if(lives == 0)
+        if(!inPlay && lives == 0 && GameObject.FindGameObjectsWithTag("Enemy") != null)
         {
-            Debug.Log("Game over");
+            canvasMessageManager.ShowGameOverMessage();
+            canvasMessageManager.CloseGameCompletedMessage();
+            canvasMessageManager.CloseLevelCompletedMessage();
+            Debug.Log(inPlay);
             Destroy(this.gameObject);
+        }
+
+        if (GameObject.FindWithTag("Enemy") == null  && lives > 0 && 
+            SceneManager.GetActiveScene().name.Equals("FirstLevel"))
+        {
+            canvasMessageManager.ShowLevelCompletedMessage();
+            canvasMessageManager.CloseGameCompletedMessage();
+            canvasMessageManager.CloseGameOverMessage();
+        }
+
+        if (GameObject.FindWithTag("Enemy") == null && lives > 0 &&
+            SceneManager.GetActiveScene().name.Equals("Secondlevel"))
+        {
+            canvasMessageManager.ShowGameCompletedMessage();
+            canvasMessageManager.CloseGameOverMessage();
+            canvasMessageManager.CloseLevelCompletedMessage();
         }
     }
 

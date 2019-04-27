@@ -21,6 +21,11 @@ public class CanvasMessageManager : MonoBehaviour
         gameOver.SetActive(false);
     }
 
+    public void ShowLevelCompletedMessage()
+    {
+        levelCompleted.SetActive(true);
+    }
+
     public void ShowGameCompletedMessage()
     {
         gameCompleted.SetActive(true);
@@ -29,6 +34,26 @@ public class CanvasMessageManager : MonoBehaviour
     public void ShowGameOverMessage()
     {
         gameOver.SetActive(true);
+    }
+
+    public void CloseLevelCompletedMessage()
+    {
+        levelCompleted.SetActive(false);
+    }
+
+    public void CloseGameCompletedMessage()
+    {
+        gameCompleted.SetActive(false);
+    }
+
+    public void CloseGameOverMessage()
+    {
+        gameOver.SetActive(false);
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene("SecondLevel");
     }
 
     public void PlayAgain()

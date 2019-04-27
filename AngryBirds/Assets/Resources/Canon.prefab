@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 9130746829122128792}
   - component: {fileID: 9130746829122128795}
   - component: {fileID: 9130746829122128794}
-  - component: {fileID: 2822782131323675704}
   m_Layer: 0
   m_Name: Canon
   m_TagString: Untagged
@@ -93,17 +92,3 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &2822782131323675704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9130746829122128796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a17495e4de4e66c42b1271773a3201aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ball: {fileID: 4115633135457641494, guid: d705c36d02eb97a45b1d6df79f2527d9, type: 3}
-  launchForce: 30

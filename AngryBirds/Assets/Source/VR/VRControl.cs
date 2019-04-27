@@ -74,7 +74,6 @@ public class VRControl : Control
             if (Input.GetKeyDown(KeyCode.Space) && !ball.GetInPlay())
             {
                 ball.ReduceNumberOfLives();
-                Debug.Log(ball.GetNumberOfLives());
                 ball.SetInPlayTrue();
                 ball.GetBallRigidBody().velocity = (hit.point - ball.GetBallRigidBody().transform.position).normalized
                     * ball.GetLaunchForce();
