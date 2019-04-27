@@ -8,9 +8,13 @@ public class Ball : MonoBehaviour
     [SerializeField]
     private Vector3 direction;
 
+    [SerializeField]
+    private float launchForce;
+
     private bool inPlay;
     private Rigidbody rigidBody;
-    private RaycastHit hit;
+
+    private int lives = 5;
 
     private void Awake()
     {
@@ -24,31 +28,16 @@ public class Ball : MonoBehaviour
 
     void Update()
     {
-        if(!inPlay)
+        if(!inPlay && lives > 0)
         {
             transform.position = GameObject.Find("SpawnPosition").transform.position;
         }
-    }
 
-    //private void LaunchBall(RaycastHit hit)
-    //{
-    //    rigidBody.velocity = (hit.point - rigidBody.transform.position).normalized * 30;
-    //}
-
-    //private void AzurirajKoordinate()
-    //{
-    //    direction += direction * Time.deltaTime;
-    //    transform.position += direction * Time.deltaTime;
-    //}
-
-    public Vector3 GetDirection()
-    {
-        return direction;
-    }
-
-    public void SetDirection(Vector3 direction)
-    {
-        this.direction = direction;
+        if(lives == 0)
+        {
+            Debug.Log("Game over");
+            Destroy(this.gameObject);
+        }
     }
 
     public void SetInPlayTrue()
@@ -66,6 +55,11 @@ public class Ball : MonoBehaviour
         return rigidBody;
     }
 
+    public float GetLaunchForce()
+    {
+        return launchForce;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag.Equals("Floor") || collision.gameObject.tag.Equals("Building")
@@ -73,7 +67,16 @@ public class Ball : MonoBehaviour
         {
             inPlay = false;
             rigidBody.velocity = Vector3.zero;
-            //Destroy(this.gameObject);
         }
+    }
+
+    public void ReduceNumberOfLives()
+    {
+        lives--;
+    }
+
+    public int GetNumberOfLives()
+    {
+        return lives;
     }
 }

@@ -11,24 +11,14 @@ public class VRControl : Control
 
     private Ball ball;
 
-    //private GameObject ball;
-    //private Rigidbody ballRigidBody;
-
     private void Awake()
     {
-        //ball = Resources.Load("Ball") as GameObject;
-        //ballRigidBody = ball.GetComponent<Rigidbody>();  
-
         ball = FindObjectOfType<Ball>();
     }
 
     public void Start()
     {
         StartCoroutine(LoadDevice("cardboard"));
-
-        //ball = GameObject.FindGameObjectWithTag("Ball");
-        //ballRigidBody = ball.GetComponent<Rigidbody>();
-
     }
 
     IEnumerator LoadDevice(string newDevice)
@@ -83,15 +73,11 @@ public class VRControl : Control
 
             if (Input.GetKeyDown(KeyCode.Space) && !ball.GetInPlay())
             {
+                ball.ReduceNumberOfLives();
+                Debug.Log(ball.GetNumberOfLives());
                 ball.SetInPlayTrue();
-                ball.GetBallRigidBody().velocity = (hit.point - ball.GetBallRigidBody().transform.position).normalized * 30;
-                //ball.GetBallRigidBody().velocity = (hit.point - ball.GetBallRigidBody().transform.position).normalized * 30;
-                //if (ball != null)
-                //{
-                //    Debug.Log("ball exists");
-                //}
-                //ballRigidBody.velocity = (hit.point - ballRigidBody.transform.position).normalized * 30;
-                //Debug.Log("current: " + currentHit);
+                ball.GetBallRigidBody().velocity = (hit.point - ball.GetBallRigidBody().transform.position).normalized
+                    * ball.GetLaunchForce();
             }                
         }
         else
