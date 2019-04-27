@@ -9,10 +9,14 @@ public class CanvasMessageManager : MonoBehaviour
     private GameObject gameCompleted;
 
     [SerializeField]
+    private GameObject levelCompleted;
+
+    [SerializeField]
     private GameObject gameOver;
 
     private void Awake()
     {
+        levelCompleted.SetActive(false);
         gameCompleted.SetActive(false);
         gameOver.SetActive(false);
     }
