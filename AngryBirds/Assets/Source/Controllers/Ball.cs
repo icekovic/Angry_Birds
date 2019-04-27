@@ -40,7 +40,6 @@ public class Ball : MonoBehaviour
             canvasMessageManager.ShowGameOverMessage();
             canvasMessageManager.CloseGameCompletedMessage();
             canvasMessageManager.CloseLevelCompletedMessage();
-            Debug.Log(inPlay);
             Destroy(this.gameObject);
         }
 
@@ -53,7 +52,7 @@ public class Ball : MonoBehaviour
         }
 
         if (GameObject.FindWithTag("Enemy") == null && lives > 0 &&
-            SceneManager.GetActiveScene().name.Equals("Secondlevel"))
+            SceneManager.GetActiveScene().name.Equals("SecondLevel"))
         {
             canvasMessageManager.ShowGameCompletedMessage();
             canvasMessageManager.CloseGameOverMessage();

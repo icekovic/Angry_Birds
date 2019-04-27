@@ -75,8 +75,12 @@ public class VRControl : Control
             {
                 ball.ReduceNumberOfLives();
                 ball.SetInPlayTrue();
-                ball.GetBallRigidBody().velocity = (hit.point - ball.GetBallRigidBody().transform.position).normalized
+
+                if(ball.GetBallRigidBody() != null)
+                {
+                    ball.GetBallRigidBody().velocity = (hit.point - ball.GetBallRigidBody().transform.position).normalized
                     * ball.GetLaunchForce();
+                }               
             }                
         }
         else
