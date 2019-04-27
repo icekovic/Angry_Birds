@@ -11,24 +11,21 @@ public class BallLauncher : MonoBehaviour
     [SerializeField]
     private float launchForce;
 
-    //[SerializeField]
-    //private float maxRayDistance;
-
     void Start()
     {
-        InstantiateBall();
+        //InstantiateBall();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
             //InstantiateBall();
             //    Ball newBall = Instantiate(ball) as Ball;
             //    newBall.transform.parent = GameObject.Find("Canon").transform;
             //    Vector3 direction = new Vector3(1, Random.Range(0.2f, 0.8f), Random.Range(9,10)).normalized * launchForce;
             //    newBall.SetDirection(direction);           
-        }
+        //}
 
         //if (Input.GetKeyDown(KeyCode.Space))
         //{
@@ -37,9 +34,10 @@ public class BallLauncher : MonoBehaviour
         //}
     }
 
-    private void InstantiateBall()
-    {
-        Ball newBall = Instantiate(ball) as Ball;
-        newBall.transform.parent = GameObject.Find("Canon").transform;
-    }
+    //private void InstantiateBall()
+    //{
+    //    Ball newBall = Instantiate(ball) as Ball;
+    //    //newBall.transform.parent = GameObject.Find("Canon").transform;
+    //    newBall.transform.position = GameObject.Find("SpawnPosition").transform.position;
+    //}
 }
