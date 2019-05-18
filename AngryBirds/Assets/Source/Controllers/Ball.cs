@@ -40,26 +40,25 @@ public class Ball : MonoBehaviour
             canvasMessageManager.CloseHud();
             canvasMessageManager.ShowGameOverMessage();
             canvasMessageManager.CloseGameCompletedMessage();
-            canvasMessageManager.CloseLevelCompletedMessage();
             Destroy(this.gameObject);
         }
 
         if (GameObject.FindWithTag("Enemy") == null  && canvasMessageManager.GetNumberOfLives() > 0 && 
             SceneManager.GetActiveScene().name.Equals("FirstLevel"))
         {
-            canvasMessageManager.CloseHud();
-            canvasMessageManager.ShowLevelCompletedMessage();
-            canvasMessageManager.CloseGameCompletedMessage();
-            canvasMessageManager.CloseGameOverMessage();
+            SceneManager.LoadScene("SecondLevel");
         }
 
         if (GameObject.FindWithTag("Enemy") == null && canvasMessageManager.GetNumberOfLives() > 0 &&
             SceneManager.GetActiveScene().name.Equals("SecondLevel"))
         {
-            canvasMessageManager.CloseHud();
+            SceneManager.LoadScene("ThirdLevel");
+        }
+
+        if (GameObject.FindWithTag("Enemy") == null && canvasMessageManager.GetNumberOfLives() > 0 &&
+            SceneManager.GetActiveScene().name.Equals("ThirdLevel"))
+        {
             canvasMessageManager.ShowGameCompletedMessage();
-            canvasMessageManager.CloseGameOverMessage();
-            canvasMessageManager.CloseLevelCompletedMessage();
         }
     }
 

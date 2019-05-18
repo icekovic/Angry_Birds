@@ -10,9 +10,6 @@ public class CanvasMessageManager : MonoBehaviour
     private GameObject gameCompleted;
 
     [SerializeField]
-    private GameObject levelCompleted;
-
-    [SerializeField]
     private GameObject gameOver;
 
     [SerializeField]
@@ -23,7 +20,6 @@ public class CanvasMessageManager : MonoBehaviour
 
     private void Awake()
     {
-        levelCompleted.SetActive(false);
         gameCompleted.SetActive(false);
         gameOver.SetActive(false);
         hud.SetActive(true);
@@ -35,11 +31,6 @@ public class CanvasMessageManager : MonoBehaviour
         livesText.text = lives.ToString();
     }
 
-    public void ShowLevelCompletedMessage()
-    {
-        levelCompleted.SetActive(true);
-    }
-
     public void ShowGameCompletedMessage()
     {
         gameCompleted.SetActive(true);
@@ -48,11 +39,6 @@ public class CanvasMessageManager : MonoBehaviour
     public void ShowGameOverMessage()
     {
         gameOver.SetActive(true);
-    }
-
-    public void CloseLevelCompletedMessage()
-    {
-        levelCompleted.SetActive(false);
     }
 
     public void CloseGameCompletedMessage()
@@ -68,11 +54,6 @@ public class CanvasMessageManager : MonoBehaviour
     public void CloseHud()
     {
         hud.SetActive(false);
-    }
-
-    public void NextLevel()
-    {
-        SceneManager.LoadScene("SecondLevel");
     }
 
     public void RestartLevel()
