@@ -10,10 +10,12 @@ public class VRControl : Control
     float placeCooldown = 0;
 
     private Ball ball;
+    private CanvasMessageManager canvasMessageManager;
 
     private void Awake()
     {
         ball = FindObjectOfType<Ball>();
+        canvasMessageManager = FindObjectOfType<CanvasMessageManager>();
     }
 
     public void Start()
@@ -73,7 +75,8 @@ public class VRControl : Control
 
             if (Input.GetKeyDown(KeyCode.Space) && !ball.GetInPlay())
             {
-                ball.ReduceNumberOfLives();
+                //ball.ReduceNumberOfLives();
+                canvasMessageManager.TakeOneLife();
                 ball.SetInPlayTrue();
 
                 if(ball.GetBallRigidBody() != null)
