@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,6 +16,9 @@ public class CanvasMessageManager : MonoBehaviour
     [SerializeField]
     private GameObject hud;
 
+    [SerializeField]
+    private GameObject menu;
+
     private Text livesText;
     private int lives = 5;
 
@@ -23,6 +27,7 @@ public class CanvasMessageManager : MonoBehaviour
         gameCompleted.SetActive(false);
         gameOver.SetActive(false);
         hud.SetActive(true);
+        menu.SetActive(false);
         livesText = GameObject.Find("NumbersOfLivesValue").GetComponent<Text>();
     }
 
@@ -54,6 +59,16 @@ public class CanvasMessageManager : MonoBehaviour
     public void CloseHud()
     {
         hud.SetActive(false);
+    }
+
+    public void ShowMenu()
+    {
+        menu.SetActive(true);
+    }
+
+    public void CloseMenu()
+    {
+        menu.SetActive(false);
     }
 
     public void RestartLevel()

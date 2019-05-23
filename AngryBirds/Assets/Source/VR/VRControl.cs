@@ -73,22 +73,34 @@ public class VRControl : Control
             // indicator.transform.rotation = Quaternion.LookRotation(hit.point + lookAt, hit.normal);
             // Debug.Log(hit.point);
 
+            //shoot ball
             if (Input.GetKeyDown(KeyCode.Space) && !ball.GetInPlay())
+            
             {
-                //ball.ReduceNumberOfLives();
-                canvasMessageManager.TakeOneLife();
-                ball.SetInPlayTrue();
-
-                if(ball.GetBallRigidBody() != null)
-                {
-                    ball.GetBallRigidBody().velocity = (hit.point - ball.GetBallRigidBody().transform.position).normalized
-                    * ball.GetLaunchForce();
-                }               
-            }                
+                ShootBall(hit);     
+            }
+            
+            //if(camera.transform.eulerAngles.x > 50 && camera.transform.eulerAngles.x < 60)
+            if(camera.transform.eulerAngles.x > 30 && camera.transform.eulerAngles.x < 60)
+            {
+                canvasMessageManager.ShowMenu();
+            }
         }
         else
         {
             currentHit = Vector3.zero;
+        }
+    }
+
+    private void ShootBall(RaycastHit hit)
+    {
+        canvasMessageManager.TakeOneLife();
+        ball.SetInPlayTrue();
+
+        if (ball.GetBallRigidBody() != null)
+        {
+            ball.GetBallRigidBody().velocity = (hit.point - ball.GetBallRigidBody().transform.position).normalized
+            * ball.GetLaunchForce();
         }
     }
 }
