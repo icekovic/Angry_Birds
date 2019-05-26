@@ -14,7 +14,6 @@ public class Ball : MonoBehaviour
 
     private bool inPlay;
     private Rigidbody rigidBody;
-    //private int lives = 5;
     private CanvasMessageManager canvasMessageManager;
 
     private void Awake()
@@ -91,14 +90,4 @@ public class Ball : MonoBehaviour
             rigidBody.velocity = Vector3.zero;
         }
     }
-
-    //public void ReduceNumberOfLives()
-    //{
-    //    lives--;
-    //}
-
-    //public int GetNumberOfLives()
-    //{
-    //    return lives;
-    //}
 }

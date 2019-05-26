@@ -75,15 +75,28 @@ public class VRControl : Control
 
             //shoot ball
             if (Input.GetKeyDown(KeyCode.Space) && !ball.GetInPlay())
-            
+            //if((camera.transform.eulerAngles.x > 30 && camera.transform.eulerAngles.x < 60) && !ball.GetInPlay())
             {
                 ShootBall(hit);     
             }
-            
-            //if(camera.transform.eulerAngles.x > 50 && camera.transform.eulerAngles.x < 60)
+
             if(camera.transform.eulerAngles.x > 30 && camera.transform.eulerAngles.x < 60)
-            {
+            {               
                 canvasMessageManager.ShowMenu();
+            }
+
+            //check if buttons are selected
+            //if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, Mathf.1000))
+            //{
+            //    if(hit.collider.tag.Equals("RestartLevel"))
+            //    {
+            //        canvasMessageManager.RestartLevel();
+            //    }
+            //}
+
+            if(hit.collider.tag.Equals("RestartLevel"))
+            {
+                canvasMessageManager.RestartLevel();
             }
         }
         else
@@ -103,4 +116,6 @@ public class VRControl : Control
             * ball.GetLaunchForce();
         }
     }
+
+
 }

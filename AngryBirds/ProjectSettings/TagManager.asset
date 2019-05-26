@@ -9,6 +9,10 @@ TagManager:
   - Building
   - Enemy
   - Floor
+  - RestartLevel
+  - MainMenu
+  - PlayAgain
+  - RestartGame
   layers:
   - Default
   - TransparentFX
