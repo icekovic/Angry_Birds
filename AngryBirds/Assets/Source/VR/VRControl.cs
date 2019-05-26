@@ -94,10 +94,7 @@ public class VRControl : Control
             //    }
             //}
 
-            if(hit.collider.tag.Equals("RestartLevel"))
-            {
-                canvasMessageManager.RestartLevel();
-            }
+            CheckWhichButtonIsLooked(hit);
         }
         else
         {
@@ -117,5 +114,21 @@ public class VRControl : Control
         }
     }
 
+    private void CheckWhichButtonIsLooked(RaycastHit hit)
+    {
+        if (hit.collider.tag.Equals("RestartLevel"))
+        {
+            canvasMessageManager.RestartLevel();
+        }
 
+        if (hit.collider.tag.Equals("MainMenu"))
+        {
+            canvasMessageManager.MainMenu();
+        }
+
+        if (hit.collider.tag.Equals("PlayAgain") || hit.collider.tag.Equals("RestartGame"))
+        {
+            canvasMessageManager.PlayAgain();
+        }
+    }
 }

@@ -187,10 +187,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: bcd2a1e378f25d44e8ca7a2fb4f87424, type: 3}
-    m_FontSize: 40
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -294,6 +294,7 @@ GameObject:
   - component: {fileID: 38661896}
   - component: {fileID: 38661895}
   - component: {fileID: 38661894}
+  - component: {fileID: 38661897}
   m_Layer: 5
   m_Name: MainMenuButton
   m_TagString: MainMenu
@@ -318,8 +319,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.029999971, y: -0.67}
-  m_SizeDelta: {x: 250, y: 50}
+  m_AnchoredPosition: {x: 2.88, y: -0.27}
+  m_SizeDelta: {x: 150, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &38661894
 MonoBehaviour:
@@ -411,6 +412,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38661892}
   m_CullTransparentMesh: 0
+--- !u!65 &38661897
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38661892}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 150.2066, y: 29.912567, z: 1}
+  m_Center: {x: 0.027004555, y: -0.065037996, z: 0}
 --- !u!1 &175956547
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,10 +500,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: bcd2a1e378f25d44e8ca7a2fb4f87424, type: 3}
-    m_FontSize: 40
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -581,10 +595,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: bcd2a1e378f25d44e8ca7a2fb4f87424, type: 3}
-    m_FontSize: 40
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -846,10 +860,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: bcd2a1e378f25d44e8ca7a2fb4f87424, type: 3}
-    m_FontSize: 40
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1022,6 +1036,7 @@ GameObject:
   - component: {fileID: 252546001}
   - component: {fileID: 252546000}
   - component: {fileID: 252545999}
+  - component: {fileID: 252546002}
   m_Layer: 5
   m_Name: PlayAgainButton
   m_TagString: PlayAgain
@@ -1046,8 +1061,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.03, y: 1.12}
-  m_SizeDelta: {x: 250, y: 50}
+  m_AnchoredPosition: {x: 3.13, y: 1.12}
+  m_SizeDelta: {x: 150, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &252545999
 MonoBehaviour:
@@ -1139,6 +1154,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 252545997}
   m_CullTransparentMesh: 0
+--- !u!65 &252546002
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252545997}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 147.2669, y: 29.027374, z: 1}
+  m_Center: {x: 0.07984973, y: 0.4298663, z: 0}
 --- !u!1 &299084470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,6 +1179,7 @@ GameObject:
   - component: {fileID: 299084474}
   - component: {fileID: 299084473}
   - component: {fileID: 299084472}
+  - component: {fileID: 299084475}
   m_Layer: 5
   m_Name: MainMenuButton
   m_TagString: MainMenu
@@ -1268,6 +1297,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299084470}
   m_CullTransparentMesh: 0
+--- !u!65 &299084475
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299084470}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 119.668015, y: 30.539719, z: 1}
+  m_Center: {x: -0.1335063, y: 0.0042007086, z: 0}
 --- !u!1 &302610279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,6 +1322,7 @@ GameObject:
   - component: {fileID: 302610283}
   - component: {fileID: 302610282}
   - component: {fileID: 302610281}
+  - component: {fileID: 302610284}
   m_Layer: 5
   m_Name: RestartLevelButton
   m_TagString: RestartLevel
@@ -1304,8 +1347,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.029999971, y: 0.23000002}
-  m_SizeDelta: {x: 300, y: 50}
+  m_AnchoredPosition: {x: 2.82, y: 0.44}
+  m_SizeDelta: {x: 150, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &302610281
 MonoBehaviour:
@@ -1397,6 +1440,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 302610279}
   m_CullTransparentMesh: 0
+--- !u!65 &302610284
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302610279}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 150.0777, y: 30.05883, z: 1}
+  m_Center: {x: 0.04038519, y: 0.21612361, z: 0}
 --- !u!1 &356798644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,6 +1560,7 @@ GameObject:
   - component: {fileID: 360429369}
   - component: {fileID: 360429368}
   - component: {fileID: 360429367}
+  - component: {fileID: 360429370}
   m_Layer: 5
   m_Name: RestartLevelButton
   m_TagString: RestartLevel
@@ -1528,8 +1585,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.029999971, y: 0.23000002}
-  m_SizeDelta: {x: 300, y: 50}
+  m_AnchoredPosition: {x: 3.15, y: 0.5}
+  m_SizeDelta: {x: 150, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &360429367
 MonoBehaviour:
@@ -1621,6 +1678,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360429365}
   m_CullTransparentMesh: 0
+--- !u!65 &360429370
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360429365}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 148.14314, y: 29.93442, z: 1}
+  m_Center: {x: 0.17924374, y: 0.0036938663, z: 0}
 --- !u!1 &490875869
 GameObject:
   m_ObjectHideFlags: 0
@@ -2160,8 +2230,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698830631}
   m_CullTransparentMesh: 0
---- !u!64 &698830636
-MeshCollider:
+--- !u!65 &698830636
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2170,10 +2240,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
+  serializedVersion: 2
+  m_Size: {x: 150.47841, y: 30.540108, z: 1}
+  m_Center: {x: -0.11174047, y: -0.041074496, z: 0}
 --- !u!1 &716336177
 GameObject:
   m_ObjectHideFlags: 0
@@ -2686,10 +2755,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: bcd2a1e378f25d44e8ca7a2fb4f87424, type: 3}
-    m_FontSize: 40
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -3169,6 +3238,7 @@ GameObject:
   - component: {fileID: 1400345960}
   - component: {fileID: 1400345959}
   - component: {fileID: 1400345958}
+  - component: {fileID: 1400345961}
   m_Layer: 5
   m_Name: MainMenuButton
   m_TagString: MainMenu
@@ -3193,8 +3263,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.029999971, y: -0.67}
-  m_SizeDelta: {x: 250, y: 50}
+  m_AnchoredPosition: {x: 3.13, y: -0.16}
+  m_SizeDelta: {x: 150, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1400345958
 MonoBehaviour:
@@ -3286,6 +3356,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1400345956}
   m_CullTransparentMesh: 0
+--- !u!65 &1400345961
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400345956}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 149.32037, y: 30.389994, z: 1}
+  m_Center: {x: 0.37507138, y: 0.063343115, z: 0}
 --- !u!1 &1415209072
 GameObject:
   m_ObjectHideFlags: 0
@@ -3497,10 +3580,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: bcd2a1e378f25d44e8ca7a2fb4f87424, type: 3}
-    m_FontSize: 40
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -3849,6 +3932,7 @@ GameObject:
   - component: {fileID: 1616077713}
   - component: {fileID: 1616077712}
   - component: {fileID: 1616077711}
+  - component: {fileID: 1616077714}
   m_Layer: 5
   m_Name: RestartGameButton
   m_TagString: RestartGame
@@ -3873,8 +3957,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.03, y: 1.1}
-  m_SizeDelta: {x: 250, y: 50}
+  m_AnchoredPosition: {x: 2.84, y: 1.1}
+  m_SizeDelta: {x: 150, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1616077711
 MonoBehaviour:
@@ -3966,6 +4050,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1616077709}
   m_CullTransparentMesh: 0
+--- !u!65 &1616077714
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616077709}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 149.34511, y: 28.976063, z: 1}
+  m_Center: {x: -0.35799405, y: 0.46979928, z: 0}
 --- !u!1001 &1641904517
 PrefabInstance:
   m_ObjectHideFlags: 0
