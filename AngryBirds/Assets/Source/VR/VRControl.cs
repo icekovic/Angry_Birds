@@ -73,9 +73,11 @@ public class VRControl : Control
             // indicator.transform.rotation = Quaternion.LookRotation(hit.point + lookAt, hit.normal);
             // Debug.Log(hit.point);
 
+            Debug.Log(camera.transform.eulerAngles.x);
+
             //shoot ball
             //if (Input.GetKeyDown(KeyCode.Space) && !ball.GetInPlay())
-            if((camera.transform.eulerAngles.x > 0 && camera.transform.eulerAngles.x < 10) && !ball.GetInPlay())
+            if((camera.transform.eulerAngles.x > 5 && camera.transform.eulerAngles.x < 10) && !ball.GetInPlay())
             {
                 ShootBall(hit);     
             }
