@@ -74,8 +74,8 @@ public class VRControl : Control
             // Debug.Log(hit.point);
 
             //shoot ball
-            if (Input.GetKeyDown(KeyCode.Space) && !ball.GetInPlay())
-            //if((camera.transform.eulerAngles.x > 30 && camera.transform.eulerAngles.x < 60) && !ball.GetInPlay())
+            //if (Input.GetKeyDown(KeyCode.Space) && !ball.GetInPlay())
+            if((camera.transform.eulerAngles.x > 0 && camera.transform.eulerAngles.x < 10) && !ball.GetInPlay())
             {
                 ShootBall(hit);     
             }
@@ -84,15 +84,6 @@ public class VRControl : Control
             {               
                 canvasMessageManager.ShowMenu();
             }
-
-            //check if buttons are selected
-            //if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, Mathf.1000))
-            //{
-            //    if(hit.collider.tag.Equals("RestartLevel"))
-            //    {
-            //        canvasMessageManager.RestartLevel();
-            //    }
-            //}
 
             CheckWhichButtonIsLooked(hit);
         }
@@ -119,16 +110,22 @@ public class VRControl : Control
         if (hit.collider.tag.Equals("RestartLevel"))
         {
             canvasMessageManager.RestartLevel();
+            canvasMessageManager.CloseMenu();
+            canvasMessageManager.CloseHud();
         }
 
         if (hit.collider.tag.Equals("MainMenu"))
         {
             canvasMessageManager.MainMenu();
+            canvasMessageManager.CloseMenu();
+            canvasMessageManager.CloseHud();
         }
 
         if (hit.collider.tag.Equals("PlayAgain") || hit.collider.tag.Equals("RestartGame"))
         {
             canvasMessageManager.PlayAgain();
+            canvasMessageManager.CloseMenu();
+            canvasMessageManager.CloseHud();
         }
     }
 }
