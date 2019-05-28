@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 400431254581255323}
   m_Layer: 0
   m_Name: VRControl
-  m_TagString: Untagged
+  m_TagString: VRControl
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

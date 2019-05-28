@@ -11,6 +11,9 @@ public class VRControl : Control
 
     private Ball ball;
     private CanvasMessageManager canvasMessageManager;
+    private GameObject vrControl;
+
+    private float shotDelayTimer;
 
     private void Awake()
     {
@@ -21,6 +24,7 @@ public class VRControl : Control
     public void Start()
     {
         StartCoroutine(LoadDevice("cardboard"));
+        shotDelayTimer = 0;
     }
 
     IEnumerator LoadDevice(string newDevice)
@@ -46,7 +50,9 @@ public class VRControl : Control
     public void Update()
     {
         var camera = Camera.main;
-        
+        vrControl = GameObject.FindGameObjectWithTag("VRControl");
+        //Debug.Log(vrControl.transform.rotation.eulerAngles.y);
+
         if (Mathf.Abs(Mathf.DeltaAngle(camera.transform.eulerAngles.z, 0)) > 25)
         {
             canPlace = true;
@@ -73,22 +79,33 @@ public class VRControl : Control
             // indicator.transform.rotation = Quaternion.LookRotation(hit.point + lookAt, hit.normal);
             // Debug.Log(hit.point);
 
-            Debug.Log(camera.transform.eulerAngles.x);
-
             //shoot ball
             //if (Input.GetKeyDown(KeyCode.Space) && !ball.GetInPlay())
-            if((camera.transform.eulerAngles.x > 5 && camera.transform.eulerAngles.x < 10) && !ball.GetInPlay())
+            //if((camera.transform.eulerAngles.x > 5 && camera.transform.eulerAngles.x < 10) && !ball.GetInPlay())
             {
-                ShootBall(hit);     
+                //ShootBall(hit);     
             }
 
-            if(camera.transform.eulerAngles.x > 30 && camera.transform.eulerAngles.x < 60)
-            {               
+            //show menu when look down
+            if (vrControl.transform.rotation.eulerAngles.x > 30 && vrControl.transform.rotation.eulerAngles.x <= 90)
+            {
                 canvasMessageManager.ShowMenu();
+            }
+
+            shotDelayTimer += Time.deltaTime;
+
+            if (!ball.GetInPlay())
+            {
+                if(shotDelayTimer > 4.0f)
+                {
+                    ShootBall(hit);
+                    shotDelayTimer = 0;
+                }               
             }
 
             CheckWhichButtonIsLooked(hit);
         }
+
         else
         {
             currentHit = Vector3.zero;

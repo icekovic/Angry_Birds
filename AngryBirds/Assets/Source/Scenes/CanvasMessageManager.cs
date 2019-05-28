@@ -39,11 +39,15 @@ public class CanvasMessageManager : MonoBehaviour
     public void ShowGameCompletedMessage()
     {
         gameCompleted.SetActive(true);
+        CloseHud();
+        CloseMenu();
     }
 
     public void ShowGameOverMessage()
     {
         gameOver.SetActive(true);
+        CloseHud();
+        CloseMenu();
     }
 
     public void CloseGameCompletedMessage()
