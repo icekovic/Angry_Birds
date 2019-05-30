@@ -58,9 +58,13 @@ public class ARControl : Control
             placementPose.rotation = Math.getBearing(Camera.main.transform.forward);
 
             //shoot
-            if (Input.GetKeyDown(KeyCode.Space) && !ball.GetInPlay())
+            if (!ball.GetInPlay())
             {
-                ShootBall(hit);
+                if(Input.GetKeyDown(KeyCode.Space) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began &&
+                    Input.GetTouch(1).phase == TouchPhase.Began))
+                {
+                    ShootBall(hit);                  
+                }               
             }
         }
     }
@@ -87,6 +91,7 @@ public class ARControl : Control
         {
             ball.GetBallRigidBody().velocity = (hit.point - ball.GetBallRigidBody().transform.position).normalized
             * ball.GetLaunchForce();
+
         }
     }
 }
