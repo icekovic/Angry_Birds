@@ -22,6 +22,8 @@ public class CanvasMessageManager : MonoBehaviour
     private Text livesText;
     private int lives = 5;
 
+    private Button showMenuButton;
+
     private void Awake()
     {
         gameCompleted.SetActive(false);
@@ -29,6 +31,7 @@ public class CanvasMessageManager : MonoBehaviour
         hud.SetActive(true);
         menu.SetActive(false);
         livesText = GameObject.Find("NumbersOfLivesValue").GetComponent<Text>();
+        showMenuButton = GameObject.Find("ShowMenuButton").GetComponent<Button>();
     }
 
     private void Update()
@@ -58,6 +61,16 @@ public class CanvasMessageManager : MonoBehaviour
     public void CloseGameOverMessage()
     {
         gameOver.SetActive(false);
+    }
+
+    public void HideShowMenuButton()
+    {
+        showMenuButton.gameObject.SetActive(false);
+    }
+
+    public void DisplayShowMenuButton()
+    {
+        showMenuButton.gameObject.SetActive(true);
     }
 
     public void CloseHud()

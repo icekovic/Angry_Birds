@@ -25,6 +25,7 @@ public class VRControl : Control
     {
         StartCoroutine(LoadDevice("cardboard"));
         shotDelayTimer = 0;
+        canvasMessageManager.HideShowMenuButton();
     }
 
     IEnumerator LoadDevice(string newDevice)

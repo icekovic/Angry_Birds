@@ -10,10 +10,20 @@ public class ARControl : Control
     Pose placementPose;
     bool placementPoseIsValid;
 
+    private Ball ball;
+    private CanvasMessageManager canvasMessageManager;
+
+    private void Awake()
+    {
+        ball = FindObjectOfType<Ball>();
+        canvasMessageManager = FindObjectOfType<CanvasMessageManager>();
+    }
+
     void Start()
     {
         XRSettings.LoadDeviceByName("");
         arOrigin = FindObjectOfType<ARSessionOrigin>();
+        canvasMessageManager.DisplayShowMenuButton();
     }
 
     void Update()
@@ -46,6 +56,12 @@ public class ARControl : Control
             placementPose.position = hit.point + hit.normal * 0.05f;
             indicator.transform.up = hit.normal;
             placementPose.rotation = Math.getBearing(Camera.main.transform.forward);
+
+            //shoot
+            if (Input.GetKeyDown(KeyCode.Space) && !ball.GetInPlay())
+            {
+                ShootBall(hit);
+            }
         }
     }
 
@@ -60,5 +76,17 @@ public class ARControl : Control
         }
 
         return null;
+    }
+
+    private void ShootBall(RaycastHit hit)
+    {
+        canvasMessageManager.TakeOneLife();
+        ball.SetInPlayTrue();
+
+        if (ball.GetBallRigidBody() != null)
+        {
+            ball.GetBallRigidBody().velocity = (hit.point - ball.GetBallRigidBody().transform.position).normalized
+            * ball.GetLaunchForce();
+        }
     }
 }

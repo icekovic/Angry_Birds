@@ -5,15 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+
     public void startARGame()
     {
-        GameController.currentControlType = ControlType.AR;
+        GameController.currentControlType = ControlType.AR;       
         loadScene();
     }
 
     public void startVRGame()
     {
-        GameController.currentControlType = ControlType.VR;
+        GameController.currentControlType = ControlType.VR;       
         loadScene();
     }
 
