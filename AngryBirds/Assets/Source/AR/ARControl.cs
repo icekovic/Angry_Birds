@@ -13,6 +13,8 @@ public class ARControl : Control
     private Ball ball;
     private CanvasMessageManager canvasMessageManager;
 
+    private float shotDelayTimer;
+
     private void Awake()
     {
         ball = FindObjectOfType<Ball>();
@@ -60,11 +62,38 @@ public class ARControl : Control
             //shoot
             if (!ball.GetInPlay())
             {
-                if(Input.GetKeyDown(KeyCode.Space) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began &&
-                    Input.GetTouch(1).phase == TouchPhase.Began))
+                //if(Input.GetKeyDown(KeyCode.Space) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began &&
+                //    Input.GetTouch(1).phase == TouchPhase.Began))
+                //{
+                //    Vector2 touchDifference = Input.GetTouch(1).position - Input.GetTouch(0).position;
+                //    Debug.Log(touchDifference);
+                //    ShootBall(hit);
+                //}  
+
+                //for(int i = 0; i < Input.touchCount; ++i)
+                //{
+                //    if (Input.GetTouch(i).phase.Equals(TouchPhase.Began))
+                //    {
+                //        Ray touchRay = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
+                //        if (Physics.Raycast(ray, out hit))
+                //        {
+                //            ShootBall(hit);
+                //        }
+                //            //hit.transform.gameObject.SendMessage("OnMouseDown");
+                //        //ShootBall(hit);
+                //    }
+                //}
+
+                shotDelayTimer += Time.deltaTime;
+
+                if (!ball.GetInPlay())
                 {
-                    ShootBall(hit);                  
-                }               
+                    if (shotDelayTimer > 3.0f)
+                    {
+                        ShootBall(hit);
+                        shotDelayTimer = 0;
+                    }
+                }
             }
         }
     }
