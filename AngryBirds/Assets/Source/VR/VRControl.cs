@@ -97,7 +97,7 @@ public class VRControl : Control
 
             if (!ball.GetInPlay())
             {
-                if(shotDelayTimer > 3.0f)
+                if(shotDelayTimer > 4.0f)
                 {
                     ShootBall(hit);
                     shotDelayTimer = 0;
