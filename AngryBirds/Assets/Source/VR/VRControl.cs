@@ -25,7 +25,7 @@ public class VRControl : Control
     {
         StartCoroutine(LoadDevice("cardboard"));
         shotDelayTimer = 0;
-        canvasMessageManager.HideShowMenuButton();
+        //canvasMessageManager.HideShowMenuButton();
     }
 
     IEnumerator LoadDevice(string newDevice)
@@ -88,10 +88,10 @@ public class VRControl : Control
             }
 
             //show menu when look down
-            if (vrControl.transform.rotation.eulerAngles.x > 30 && vrControl.transform.rotation.eulerAngles.x <= 90)
-            {
-                canvasMessageManager.ShowMenu();
-            }
+            //if (vrControl.transform.rotation.eulerAngles.x > 30 && vrControl.transform.rotation.eulerAngles.x <= 90)
+            //{
+            //    canvasMessageManager.ShowMenu();
+            //}
 
             shotDelayTimer += Time.deltaTime;
 
@@ -130,21 +130,21 @@ public class VRControl : Control
         if (hit.collider.tag.Equals("RestartLevel"))
         {
             canvasMessageManager.RestartLevel();
-            canvasMessageManager.CloseMenu();
+            //canvasMessageManager.CloseMenu();
             canvasMessageManager.CloseHud();
         }
 
         if (hit.collider.tag.Equals("MainMenu"))
         {
             canvasMessageManager.MainMenu();
-            canvasMessageManager.CloseMenu();
+            //canvasMessageManager.CloseMenu();
             canvasMessageManager.CloseHud();
         }
 
         if (hit.collider.tag.Equals("PlayAgain") || hit.collider.tag.Equals("RestartGame"))
         {
             canvasMessageManager.PlayAgain();
-            canvasMessageManager.CloseMenu();
+            //canvasMessageManager.CloseMenu();
             canvasMessageManager.CloseHud();
         }
     }

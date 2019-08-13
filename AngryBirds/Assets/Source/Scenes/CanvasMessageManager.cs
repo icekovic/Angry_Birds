@@ -29,7 +29,7 @@ public class CanvasMessageManager : MonoBehaviour
         gameCompleted.SetActive(false);
         gameOver.SetActive(false);
         hud.SetActive(true);
-        menu.SetActive(false);
+        //menu.SetActive(false);
         livesText = GameObject.Find("NumbersOfLivesValue").GetComponent<Text>();
         showMenuButton = GameObject.Find("ShowMenuButton").GetComponent<Button>();
     }
@@ -43,14 +43,14 @@ public class CanvasMessageManager : MonoBehaviour
     {
         gameCompleted.SetActive(true);
         CloseHud();
-        CloseMenu();
+        //CloseMenu();
     }
 
     public void ShowGameOverMessage()
     {
         gameOver.SetActive(true);
         CloseHud();
-        CloseMenu();
+        //CloseMenu();
     }
 
     public void CloseGameCompletedMessage()
@@ -63,30 +63,30 @@ public class CanvasMessageManager : MonoBehaviour
         gameOver.SetActive(false);
     }
 
-    public void HideShowMenuButton()
-    {
-        showMenuButton.gameObject.SetActive(false);
-    }
+    //public void HideShowMenuButton()
+    //{
+    //    showMenuButton.gameObject.SetActive(false);
+    //}
 
-    public void DisplayShowMenuButton()
-    {
-        showMenuButton.gameObject.SetActive(true);
-    }
+    //public void DisplayShowMenuButton()
+    //{
+    //    showMenuButton.gameObject.SetActive(true);
+    //}
 
     public void CloseHud()
     {
         hud.SetActive(false);
     }
 
-    public void ShowMenu()
-    {
-        menu.SetActive(true);
-    }
+    //public void ShowMenu()
+    //{
+    //    menu.SetActive(true);
+    //}
 
-    public void CloseMenu()
-    {
-        menu.SetActive(false);
-    }
+    //public void CloseMenu()
+    //{
+    //    menu.SetActive(false);
+    //}
 
     public void RestartLevel()
     {

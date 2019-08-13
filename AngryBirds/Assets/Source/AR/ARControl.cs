@@ -25,7 +25,7 @@ public class ARControl : Control
     {
         XRSettings.LoadDeviceByName("");
         arOrigin = FindObjectOfType<ARSessionOrigin>();
-        canvasMessageManager.DisplayShowMenuButton();
+        //canvasMessageManager.DisplayShowMenuButton();
     }
 
     void Update()

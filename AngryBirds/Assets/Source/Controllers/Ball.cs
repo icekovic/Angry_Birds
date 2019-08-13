@@ -37,7 +37,7 @@ public class Ball : MonoBehaviour
         if(!inPlay && canvasMessageManager.GetNumberOfLives() == 0 && GameObject.FindGameObjectsWithTag("Enemy") != null)
         {
             canvasMessageManager.CloseHud();
-            canvasMessageManager.CloseMenu();
+            //canvasMessageManager.CloseMenu();
             canvasMessageManager.ShowGameOverMessage();
             canvasMessageManager.CloseGameCompletedMessage();
             Destroy(this.gameObject);
