@@ -13,7 +13,7 @@ public class VRControl : Control
     private CanvasMessageManager canvasMessageManager;
     private GameObject vrControl;
 
-    private float shotDelayTimer;
+    //private float shotDelayTimer;
 
     private void Awake()
     {
@@ -23,8 +23,11 @@ public class VRControl : Control
 
     public void Start()
     {
-        StartCoroutine(LoadDevice("cardboard"));
-        shotDelayTimer = 0;
+        if(!XRSettings.enabled)
+        {
+            StartCoroutine(LoadDevice("cardboard"));
+        }      
+        //shotDelayTimer = 0;
         //canvasMessageManager.HideShowMenuButton();
     }
 
@@ -83,28 +86,22 @@ public class VRControl : Control
             //shoot ball
             //if (Input.GetKeyDown(KeyCode.Space) && !ball.GetInPlay())
             //if((camera.transform.eulerAngles.x > 5 && camera.transform.eulerAngles.x < 10) && !ball.GetInPlay())
-            {
-                //ShootBall(hit);     
-            }
-
-            //show menu when look down
-            //if (vrControl.transform.rotation.eulerAngles.x > 30 && vrControl.transform.rotation.eulerAngles.x <= 90)
             //{
-            //    canvasMessageManager.ShowMenu();
+            //    ShootBall(hit);     
             //}
 
-            shotDelayTimer += Time.deltaTime;
+            //shotDelayTimer += Time.deltaTime;
 
-            if (!ball.GetInPlay())
-            {
-                if(shotDelayTimer > 4.0f)
-                {
-                    ShootBall(hit);
-                    shotDelayTimer = 0;
-                }               
-            }
+            //if (!ball.GetInPlay())
+            //{
+            //    if(shotDelayTimer > 4.0f)
+            //    {
+            //        ShootBall(hit);
+            //        shotDelayTimer = 0;
+            //    }               
+            //}
 
-            CheckWhichButtonIsLooked(hit);
+            CheckWhichButtonIsLooked(hit); 
         }
 
         else

@@ -22,7 +22,7 @@ public class CanvasMessageManager : MonoBehaviour
     private Text livesText;
     private int lives = 5;
 
-    private Button showMenuButton;
+    //private Button showMenuButton;
 
     private void Awake()
     {
@@ -31,7 +31,7 @@ public class CanvasMessageManager : MonoBehaviour
         hud.SetActive(true);
         //menu.SetActive(false);
         livesText = GameObject.Find("NumbersOfLivesValue").GetComponent<Text>();
-        showMenuButton = GameObject.Find("ShowMenuButton").GetComponent<Button>();
+        //showMenuButton = GameObject.Find("ShowMenuButton").GetComponent<Button>();
     }
 
     private void Update()
