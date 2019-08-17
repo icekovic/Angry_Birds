@@ -17,9 +17,11 @@ public class VREditorControls : MonoBehaviour
         tiltTarget.y -= Input.GetKey(KeyCode.A) ? Time.deltaTime * speed: 0;
         tiltTarget.y += Input.GetKey(KeyCode.D) ? Time.deltaTime * speed: 0;
 
-        tiltTarget.z -= Input.GetKey(KeyCode.Q) ? Time.deltaTime * 45 : 0;
-        tiltTarget.z += Input.GetKey(KeyCode.E) ? Time.deltaTime * 45 : 0;
+        //right - charging
+        tiltTarget.z -= Input.GetKey(KeyCode.E) ? Time.deltaTime * 45 : 0;
 
+        //left - shooting
+        tiltTarget.z += Input.GetKey(KeyCode.Q) ? Time.deltaTime * 45 : 0;
 
         //tiltTarget.z = Input.GetKey(KeyCode.Q) ? 30: 0;
 

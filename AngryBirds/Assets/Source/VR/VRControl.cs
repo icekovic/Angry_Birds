@@ -12,7 +12,6 @@ public class VRControl : Control
     private Ball ball;
     private CanvasMessageManager canvasMessageManager;
     private GameObject vrControl;
-
     //private float shotDelayTimer;
 
     private void Awake()
@@ -100,6 +99,24 @@ public class VRControl : Control
             //        shotDelayTimer = 0;
             //    }               
             //}
+
+            //if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.E))
+            //{
+            //    Debug.Log("camera: " + camera.transform.rotation.eulerAngles);
+            //    Debug.Log("VR control: " + vrControl.transform.rotation.eulerAngles);
+            //}
+
+            //charging
+
+            //shooting
+            if(Input.GetKey(KeyCode.Q))
+            {
+                if((camera.transform.rotation.eulerAngles.z >= 20 && camera.transform.rotation.eulerAngles.z <= 40) &&
+                    !ball.GetInPlay())
+                {
+                    ShootBall(hit);
+                }
+            }
 
             CheckWhichButtonIsLooked(hit); 
         }
