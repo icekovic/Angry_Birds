@@ -18,12 +18,10 @@ public class VREditorControls : MonoBehaviour
         tiltTarget.y += Input.GetKey(KeyCode.D) ? Time.deltaTime * speed: 0;
 
         //right - charging
-        tiltTarget.z -= Input.GetKey(KeyCode.E) ? Time.deltaTime * 45 : 0;
+        tiltTarget.z = Input.GetKey(KeyCode.E) ? 30 : 0;
 
         //left - shooting
         tiltTarget.z += Input.GetKey(KeyCode.Q) ? Time.deltaTime * 45 : 0;
-
-        //tiltTarget.z = Input.GetKey(KeyCode.Q) ? 30: 0;
 
         target.rotation = Quaternion.RotateTowards(target.rotation, Quaternion.Euler(tiltTarget), Time.deltaTime * 45);
     }

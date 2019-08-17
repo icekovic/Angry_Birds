@@ -12,6 +12,8 @@ public class VRControl : Control
     private Ball ball;
     private CanvasMessageManager canvasMessageManager;
     private GameObject vrControl;
+    private float projectileSpeed;
+    private float projectileChargeTimer = 0;
     //private float shotDelayTimer;
 
     private void Awake()
@@ -107,6 +109,12 @@ public class VRControl : Control
             //}
 
             //charging
+            if(Input.GetKey(KeyCode.E))
+            {
+                projectileChargeTimer += Time.deltaTime;
+                projectileSpeed += 1;
+                Debug.Log(projectileSpeed);
+            }
 
             //shooting
             if(Input.GetKey(KeyCode.Q))
