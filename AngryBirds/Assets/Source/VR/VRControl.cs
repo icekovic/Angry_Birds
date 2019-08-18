@@ -12,7 +12,7 @@ public class VRControl : Control
     private Ball ball;
     private CanvasMessageManager canvasMessageManager;
     private GameObject vrControl;
-    private float projectileSpeed;
+    private float projectileSpeed = 0;
     private float projectileChargeTimer = 0;
     //private float shotDelayTimer;
 
@@ -108,22 +108,18 @@ public class VRControl : Control
             //    Debug.Log("VR control: " + vrControl.transform.rotation.eulerAngles);
             //}
 
-            //charging
-            if(Input.GetKey(KeyCode.E))
+            //charging - E
+            if((camera.transform.rotation.eulerAngles.z > 20))
             {
+                //Debug.Log("camera: " + camera.transform.rotation.eulerAngles);
                 projectileChargeTimer += Time.deltaTime;
                 projectileSpeed += 1;
-                Debug.Log(projectileSpeed);
             }
 
-            //shooting
-            if(Input.GetKey(KeyCode.Q))
+            //shooting - Q
+            if((camera.transform.rotation.eulerAngles.z > 300 && camera.transform.rotation.eulerAngles.z < 330 && !ball.GetInPlay()))
             {
-                if((camera.transform.rotation.eulerAngles.z >= 20 && camera.transform.rotation.eulerAngles.z <= 40) &&
-                    !ball.GetInPlay())
-                {
-                    ShootBall(hit);
-                }
+                ShootBall(hit);
             }
 
             CheckWhichButtonIsLooked(hit); 
@@ -143,7 +139,7 @@ public class VRControl : Control
         if (ball.GetBallRigidBody() != null)
         {
             ball.GetBallRigidBody().velocity = (hit.point - ball.GetBallRigidBody().transform.position).normalized
-            * ball.GetLaunchForce();
+            * projectileSpeed;
         }
     }
 
