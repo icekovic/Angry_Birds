@@ -84,36 +84,21 @@ public class VRControl : Control
             // indicator.transform.rotation = Quaternion.LookRotation(hit.point + lookAt, hit.normal);
             // Debug.Log(hit.point);
 
-            //shoot ball
-            //if (Input.GetKeyDown(KeyCode.Space) && !ball.GetInPlay())
-            //if((camera.transform.eulerAngles.x > 5 && camera.transform.eulerAngles.x < 10) && !ball.GetInPlay())
-            //{
-            //    ShootBall(hit);     
-            //}
-
-            //shotDelayTimer += Time.deltaTime;
-
-            //if (!ball.GetInPlay())
-            //{
-            //    if(shotDelayTimer > 4.0f)
-            //    {
-            //        ShootBall(hit);
-            //        shotDelayTimer = 0;
-            //    }               
-            //}
-
-            //if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.E))
-            //{
-            //    Debug.Log("camera: " + camera.transform.rotation.eulerAngles);
-            //    Debug.Log("VR control: " + vrControl.transform.rotation.eulerAngles);
-            //}
-
             //charging - E
+            //max rotation angle is 45 degrees
             if((camera.transform.rotation.eulerAngles.z > 20))
             {
-                //Debug.Log("camera: " + camera.transform.rotation.eulerAngles);
                 projectileChargeTimer += Time.deltaTime;
                 projectileSpeed += 1;
+
+                //if in tilt position for too long (5 seconds)
+                if (projectileChargeTimer >= 5)
+                {
+                    //shot is cancelled
+                    projectileChargeTimer = 0;
+                    projectileSpeed = 0;
+                    ball.SetInPlayFalse();
+                }
             }
 
             //shooting - Q
