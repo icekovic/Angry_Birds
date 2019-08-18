@@ -14,7 +14,6 @@ public class VRControl : Control
     private GameObject vrControl;
     private float projectileSpeed = 0;
     private float projectileChargeTimer = 0;
-    //private float shotDelayTimer;
 
     private void Awake()
     {
@@ -24,12 +23,7 @@ public class VRControl : Control
 
     public void Start()
     {
-        if(!XRSettings.enabled)
-        {
-            StartCoroutine(LoadDevice("cardboard"));
-        }      
-        //shotDelayTimer = 0;
-        //canvasMessageManager.HideShowMenuButton();
+        StartCoroutine(LoadDevice("cardboard"));   
     }
 
     IEnumerator LoadDevice(string newDevice)
@@ -56,7 +50,6 @@ public class VRControl : Control
     {
         var camera = Camera.main;
         vrControl = GameObject.FindGameObjectWithTag("VRControl");
-        //Debug.Log(vrControl.transform.rotation.eulerAngles.y);
 
         if (Mathf.Abs(Mathf.DeltaAngle(camera.transform.eulerAngles.z, 0)) > 25)
         {
@@ -133,21 +126,18 @@ public class VRControl : Control
         if (hit.collider.tag.Equals("RestartLevel"))
         {
             canvasMessageManager.RestartLevel();
-            //canvasMessageManager.CloseMenu();
             canvasMessageManager.CloseHud();
         }
 
         if (hit.collider.tag.Equals("MainMenu"))
         {
             canvasMessageManager.MainMenu();
-            //canvasMessageManager.CloseMenu();
             canvasMessageManager.CloseHud();
         }
 
         if (hit.collider.tag.Equals("PlayAgain") || hit.collider.tag.Equals("RestartGame"))
         {
             canvasMessageManager.PlayAgain();
-            //canvasMessageManager.CloseMenu();
             canvasMessageManager.CloseHud();
         }
     }
