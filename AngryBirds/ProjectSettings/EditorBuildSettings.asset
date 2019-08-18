@@ -15,9 +15,15 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Vive/ViveMainMenu.unity
-    guid: 65e8ac753065ec34abad49545a57f929
+    path: Assets/Scenes/MainMenu.unity
+    guid: 05e723a9b0d2fb940a897b31327b5fa7
   - enabled: 1
-    path: Assets/Scenes/Vive/ViveGame.unity
-    guid: 07cb8d33b2c34f94cb2a1979f4452bae
+    path: Assets/Scenes/FirstLevel.unity
+    guid: fcff83f827afea74d8b6f183811eda75
+  - enabled: 1
+    path: Assets/Scenes/SecondLevel.unity
+    guid: beb486d7ddc9d494eb6c172d6ab5884e
+  - enabled: 1
+    path: Assets/Scenes/ThirdLevel.unity
+    guid: aa8d67b52813b9c479f0607f394995cf
   m_configObjects: {}
