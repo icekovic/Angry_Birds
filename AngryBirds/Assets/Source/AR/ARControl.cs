@@ -76,7 +76,7 @@ public class ARControl : Control
                 projectileSpeed = Mathf.Abs(Vector3.Distance(firstClick, secondClick));
 
                 //if the speed is high enough higher than 50, for example
-                if(projectileSpeed > 50)
+                if(projectileSpeed > 50 && !ball.GetInPlay())
                 {
                     //the ball is fired
                     ShootBall(hit);
@@ -104,7 +104,7 @@ public class ARControl : Control
                     projectileSpeed = Mathf.Abs(Vector2.Distance(firstTouch.position, secondTouch.position));
 
                     //if the speed is high enough higher than 50, for example
-                    if (projectileSpeed > 50)
+                    if (projectileSpeed > 50 && !ball.GetInPlay())
                     {
                         //the ball is fired
                         ShootBall(hit);
