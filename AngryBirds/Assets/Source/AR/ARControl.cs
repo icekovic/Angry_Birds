@@ -61,19 +61,20 @@ public class ARControl : Control
             placementPose.rotation = Math.getBearing(Camera.main.transform.forward);
 
             //clicks -for Unity testing
-            //zbog jednostavnosti koristim lijevu i desnu tipku  miša
-            //left mouse click
+            //left and right mouse buttons are used for clicks
+            //left mouse click - first
             if(Input.GetMouseButtonDown(0))
             {
                 firstClick = Input.mousePosition;
-                Debug.Log("first click: " + firstClick);
             }
 
-            //right click
+            //right click - second
+            //the math and launch is made here
             if (Input.GetMouseButtonDown(1))
             {
                 secondClick = Input.mousePosition;
-                Debug.Log("second click: " + secondClick);
+                projectileSpeed = Mathf.Abs(Vector3.Distance(firstClick, secondClick));
+                ShootBall(hit);
             }
 
             //touches - for mobile
@@ -86,7 +87,7 @@ public class ARControl : Control
                 if(firstTouch.phase == TouchPhase.Stationary && secondTouch.phase == TouchPhase.Stationary)
                 {
                     //računa se brzina
-                    projectileSpeed = Mathf.Abs(Vector3.Distance(firstTouch.position, secondTouch.position));
+                    projectileSpeed = Mathf.Abs(Vector2.Distance(firstTouch.position, secondTouch.position));
                 }
             }
 
@@ -161,7 +162,7 @@ public class ARControl : Control
         if (ball.GetBallRigidBody() != null)
         {
             ball.GetBallRigidBody().velocity = (hit.point - ball.GetBallRigidBody().transform.position).normalized
-            * ball.GetLaunchForce();
+            * projectileSpeed;
 
         }
     }
