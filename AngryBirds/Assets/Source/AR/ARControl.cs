@@ -13,7 +13,9 @@ public class ARControl : Control
     private Ball ball;
     private CanvasMessageManager canvasMessageManager;
 
-    private float shotDelayTimer;
+    private Vector3 firstClick;
+    private Vector3 secondClick;
+    private float projectileSpeed = 0;
 
     private void Awake()
     {
@@ -25,7 +27,6 @@ public class ARControl : Control
     {
         XRSettings.LoadDeviceByName("");
         arOrigin = FindObjectOfType<ARSessionOrigin>();
-        //canvasMessageManager.DisplayShowMenuButton();
     }
 
     void Update()
@@ -59,42 +60,83 @@ public class ARControl : Control
             indicator.transform.up = hit.normal;
             placementPose.rotation = Math.getBearing(Camera.main.transform.forward);
 
-            //shoot
-            if (!ball.GetInPlay())
+            //clicks -for Unity testing
+            //zbog jednostavnosti koristim lijevu i desnu tipku  miša
+            //left mouse click
+            if(Input.GetMouseButtonDown(0))
             {
-                //if(Input.GetKeyDown(KeyCode.Space) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began &&
-                //    Input.GetTouch(1).phase == TouchPhase.Began))
-                //{
-                //    Vector2 touchDifference = Input.GetTouch(1).position - Input.GetTouch(0).position;
-                //    Debug.Log(touchDifference);
-                //    ShootBall(hit);
-                //}  
+                firstClick = Input.mousePosition;
+                Debug.Log("first click: " + firstClick);
+            }
 
-                //for(int i = 0; i < Input.touchCount; ++i)
-                //{
-                //    if (Input.GetTouch(i).phase.Equals(TouchPhase.Began))
-                //    {
-                //        Ray touchRay = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
-                //        if (Physics.Raycast(ray, out hit))
-                //        {
-                //            ShootBall(hit);
-                //        }
-                //            //hit.transform.gameObject.SendMessage("OnMouseDown");
-                //        //ShootBall(hit);
-                //    }
-                //}
+            //right click
+            if (Input.GetMouseButtonDown(1))
+            {
+                secondClick = Input.mousePosition;
+                Debug.Log("second click: " + secondClick);
+            }
 
-                shotDelayTimer += Time.deltaTime;
+            //touches - for mobile
+            if (Input.touchCount == 2)
+            {
+                Touch firstTouch = Input.GetTouch(0);
+                Touch secondTouch = Input.GetTouch(1);
 
-                if (!ball.GetInPlay())
+                //ako igrač dva puta dotakne ekran i drži 
+                if(firstTouch.phase == TouchPhase.Stationary && secondTouch.phase == TouchPhase.Stationary)
                 {
-                    if (shotDelayTimer > 3.0f)
-                    {
-                        ShootBall(hit);
-                        shotDelayTimer = 0;
-                    }
+                    //računa se brzina
+                    projectileSpeed = Mathf.Abs(Vector3.Distance(firstTouch.position, secondTouch.position));
                 }
             }
+
+            //if (Input.GetMouseButtonDown(0))
+            //{
+            //clicks[0] = Input.mousePosition;
+            //firstClick = Input.mousePosition;
+            //secondClick = Input.mousePosition;
+
+            //Debug.Log("first click: " + firstClick);
+            //Debug.Log("second click: " + secondClick);
+            //Debug.Log("razlika klikova: " + Mathf.Abs(Vector3.Distance(firstClick, secondClick)));
+            //}
+
+            //shoot
+            //if (!ball.GetInPlay())
+            //{
+            //if(Input.GetKeyDown(KeyCode.Space) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began &&
+            //    Input.GetTouch(1).phase == TouchPhase.Began))
+            //{
+            //    Vector2 touchDifference = Input.GetTouch(1).position - Input.GetTouch(0).position;
+            //    Debug.Log(touchDifference);
+            //    ShootBall(hit);
+            //}  
+
+            //for(int i = 0; i < Input.touchCount; ++i)
+            //{
+            //    if (Input.GetTouch(i).phase.Equals(TouchPhase.Began))
+            //    {
+            //        Ray touchRay = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
+            //        if (Physics.Raycast(ray, out hit))
+            //        {
+            //            ShootBall(hit);
+            //        }
+            //            //hit.transform.gameObject.SendMessage("OnMouseDown");
+            //        //ShootBall(hit);
+            //    }
+            //}
+
+            //shotDelayTimer += Time.deltaTime;
+
+            //if (!ball.GetInPlay())
+            //{
+            //    if (shotDelayTimer > 3.0f)
+            //    {
+            //        ShootBall(hit);
+            //        shotDelayTimer = 0;
+            //    }
+            //}
+            //}
         }
     }
 
