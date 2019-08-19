@@ -74,7 +74,21 @@ public class ARControl : Control
             {
                 secondClick = Input.mousePosition;
                 projectileSpeed = Mathf.Abs(Vector3.Distance(firstClick, secondClick));
-                ShootBall(hit);
+
+                //if the speed is high enough higher than 50, for example
+                if(projectileSpeed > 50)
+                {
+                    //the ball is fired
+                    ShootBall(hit);
+                }
+
+                //else
+                if(projectileSpeed > 50)
+                {
+                    //the shot is cancelled
+                    projectileSpeed = 0;
+                }
+                
             }
 
             //touches - for mobile
@@ -88,6 +102,20 @@ public class ARControl : Control
                 {
                     //računa se brzina
                     projectileSpeed = Mathf.Abs(Vector2.Distance(firstTouch.position, secondTouch.position));
+
+                    //if the speed is high enough higher than 50, for example
+                    if (projectileSpeed > 50)
+                    {
+                        //the ball is fired
+                        ShootBall(hit);
+                    }
+
+                    //else
+                    if (projectileSpeed > 50)
+                    {
+                        //the shot is cancelled
+                        projectileSpeed = 0;
+                    }
                 }
             }
 
